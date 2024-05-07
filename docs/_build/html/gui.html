@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gui module &mdash; Electric Recharge  documentation</title>
+  <title>gui module &mdash; EVOPT-Maps  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -32,7 +32,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            Electric Recharge
+            EVOPT-Maps
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -63,7 +63,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Electric Recharge</a>
+          <a href="index.html">EVOPT-Maps</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -126,7 +126,7 @@ num_charging_stations (int, optional): Il numero di stazioni di ricarica da aggi
 <dl class="py function">
 <dt class="sig sig-object py" id="gui.get_coordinates">
 <span class="sig-prename descclassname"><span class="pre">gui.</span></span><span class="sig-name descname"><span class="pre">get_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geolocator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui.get_coordinates" title="Link to this definition"></a></dt>
-<dd><p>Ottiene le coordinate di una località.</p>
+<dd><p>Ottiene le coordinate geografiche di una località.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>geolocator (geopy.geocoders.Nominatim): Il geolocalizzatore da utilizzare per ottenere le coordinate.
 location (str): La località di cui ottenere le coordinate.</p>
@@ -138,7 +138,7 @@ location (str): La località di cui ottenere le coordinate.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="gui.main">
-<span class="sig-prename descclassname"><span class="pre">gui.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">battery_at_goal_percent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location_city</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">battery_capacity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electric_constant</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui.main" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">gui.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">battery_at_goal_percent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location_city</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">battery_capacity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electric_constant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui.main" title="Link to this definition"></a></dt>
 <dd><p>Funzione principale del programma.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>battery_at_goal_percent (float): La percentuale di batteria desiderata alla fine del percorso.
@@ -154,7 +154,7 @@ electric_constant (float): La costante elettrica del veicolo elettrico.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="gui.nearest_existing_node">
 <span class="sig-prename descclassname"><span class="pre">gui.</span></span><span class="sig-name descname"><span class="pre">nearest_existing_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui.nearest_existing_node" title="Link to this definition"></a></dt>
-<dd><p>Trova il nodo più vicino che esiste nel grafo.</p>
+<dd><p>Trova il nodo più vicino che esiste nel grafo in base al riferimento inserito.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>G (networkx.Graph): Il grafo in cui cercare il nodo.
 lat (float): La latitudine del punto di riferimento.
