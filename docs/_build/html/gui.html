@@ -93,17 +93,17 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="gui.draw_solution_on_map">
 <span class="sig-prename descclassname"><span class="pre">gui.</span></span><span class="sig-name descname"><span class="pre">draw_solution_on_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charging_stations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui.draw_solution_on_map" title="Link to this definition"></a></dt>
-<dd><p>Disegna la soluzione del percorso su una mappa.</p>
+<dd><p>Disegna la soluzione del percorso su una mappa interattiva.</p>
 <p>Questa funzione utilizza la libreria folium per creare una mappa interattiva. Il percorso della soluzione viene disegnato sulla mappa,
 e vengono aggiunti marcatori per il nodo di partenza, il nodo di arrivo e le stazioni di ricarica.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>graph (networkx.Graph): Il grafo in cui è stato trovato il percorso.
-solution (list): La soluzione del percorso, come lista di azioni.
+solution (list): La soluzione del percorso, come lista di coppie di nodi.
 start_node (int): L’indice del nodo di partenza nel grafo.
 end_node (int): L’indice del nodo di arrivo nel grafo.
 charging_stations (list): Una lista degli indici delle stazioni di ricarica nel grafo.</p>
 </dd>
-<dt>Returns:</dt><dd><p>folium.Map: Una mappa interattiva con il percorso disegnato su di essa.</p>
+<dt>Returns:</dt><dd><p>folium.Map: Una mappa interattiva con il percorso disegnato su di essa e marcatori per il nodo di partenza, il nodo di arrivo e le stazioni di ricarica.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -111,14 +111,15 @@ charging_stations (list): Una lista degli indici delle stazioni di ricarica nel 
 <dl class="py function">
 <dt class="sig sig-object py" id="gui.generate_osm_graph">
 <span class="sig-prename descclassname"><span class="pre">gui.</span></span><span class="sig-name descname"><span class="pre">generate_osm_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_charging_stations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui.generate_osm_graph" title="Link to this definition"></a></dt>
-<dd><p>Genera un grafo da OpenStreetMap.</p>
+<dd><p>Genera un grafo stradale da OpenStreetMap.</p>
 <p>Questa funzione scarica i dati della rete stradale da OpenStreetMap e li converte in un grafo NetworkX. Aggiunge anche le velocità degli archi,
-i tempi di percorrenza e le lunghezze degli archi al grafo.</p>
+i tempi di percorrenza e le lunghezze degli archi al grafo. Se non viene specificato un numero di stazioni di ricarica, il 30% dei nodi viene impostato come stazioni di ricarica.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>location (str): La località da cui scaricare i dati della rete stradale.
-num_charging_stations (int, optional): Il numero di stazioni di ricarica da aggiungere al grafo. Default a 0.</p>
+num_charging_stations (int, optional): Il numero di stazioni di ricarica da aggiungere al grafo. Default a None.</p>
 </dd>
-<dt>Returns:</dt><dd><p>ox.Graph: Il grafo della rete stradale.</p>
+<dt>Returns:</dt><dd><p>ox.Graph: Il grafo della rete stradale.
+list: Una lista degli indici delle stazioni di ricarica nel grafo.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -126,7 +127,8 @@ num_charging_stations (int, optional): Il numero di stazioni di ricarica da aggi
 <dl class="py function">
 <dt class="sig sig-object py" id="gui.get_coordinates">
 <span class="sig-prename descclassname"><span class="pre">gui.</span></span><span class="sig-name descname"><span class="pre">get_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geolocator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui.get_coordinates" title="Link to this definition"></a></dt>
-<dd><p>Ottiene le coordinate geografiche di una località.</p>
+<dd><p>Ottiene le coordinate geografiche di una località utilizzando un geolocalizzatore.</p>
+<p>Questa funzione utilizza un geolocalizzatore per ottenere le coordinate geografiche di una località. Se la località non esiste, la funzione restituisce None.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>geolocator (geopy.geocoders.Nominatim): Il geolocalizzatore da utilizzare per ottenere le coordinate.
 location (str): La località di cui ottenere le coordinate.</p>
@@ -139,7 +141,9 @@ location (str): La località di cui ottenere le coordinate.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="gui.main">
 <span class="sig-prename descclassname"><span class="pre">gui.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">battery_at_goal_percent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location_city</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">battery_capacity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electric_constant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui.main" title="Link to this definition"></a></dt>
-<dd><p>Funzione principale del programma.</p>
+<dd><p>Funzione principale del programma che gestisce la simulazione del percorso di un veicolo elettrico.</p>
+<p>Questa funzione crea un veicolo elettrico, genera un grafo stradale da OpenStreetMap, trova il nodo più vicino alle coordinate di partenza e di arrivo,
+esegue la ricerca del percorso, stampa il tempo di ricerca e, se esiste una soluzione, stampa la soluzione, disegna la soluzione su una mappa e apre la mappa in un browser web.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>battery_at_goal_percent (float): La percentuale di batteria desiderata alla fine del percorso.
 location_city (str): La città in cui si trova il percorso.
@@ -154,7 +158,8 @@ electric_constant (float): La costante elettrica del veicolo elettrico.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="gui.nearest_existing_node">
 <span class="sig-prename descclassname"><span class="pre">gui.</span></span><span class="sig-name descname"><span class="pre">nearest_existing_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui.nearest_existing_node" title="Link to this definition"></a></dt>
-<dd><p>Trova il nodo più vicino che esiste nel grafo in base al riferimento inserito.</p>
+<dd><p>Trova il nodo più vicino nel grafo rispetto a un punto di riferimento specificato.</p>
+<p>Questa funzione utilizza un albero di ricerca per trovare il nodo più vicino nel grafo rispetto a un punto di riferimento specificato in termini di latitudine e longitudine.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>G (networkx.Graph): Il grafo in cui cercare il nodo.
 lat (float): La latitudine del punto di riferimento.
@@ -168,7 +173,8 @@ lon (float): La longitudine del punto di riferimento.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="gui.print_solution">
 <span class="sig-prename descclassname"><span class="pre">gui.</span></span><span class="sig-name descname"><span class="pre">print_solution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electric_vehicle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui.print_solution" title="Link to this definition"></a></dt>
-<dd><p>Stampa la soluzione di un percorso con i vari valori del veicolo.</p>
+<dd><p>Stampa la soluzione di un percorso e le informazioni relative al veicolo elettrico.</p>
+<p>Questa funzione stampa la soluzione di un percorso, il numero di azioni nel percorso, le informazioni sulla batteria del veicolo elettrico, il numero di volte che il veicolo è stato ricaricato, l’energia ricaricata, il tempo di viaggio e la distanza percorsa.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>G (networkx.Graph): Il grafo in cui è stato trovato il percorso.
 solution (list): La soluzione del percorso, come lista di azioni.

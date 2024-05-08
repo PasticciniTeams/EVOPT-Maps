@@ -89,29 +89,32 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Classe che rappresenta un veicolo elettrico.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>battery_capacity (int): La capacità massima della batteria.
-battery (int): Il livello attuale della batteria.
-min_battery (int): Il livello minimo di batteria richiesto.
-electric_constant (float): La costante elettrica del veicolo.
-recharge (int): Numero di ricariche.
-energy_recharged (list): Una lista delle energie ricaricate.
-travel_time (int): Il tempo di viaggio totale.</p>
+<dt>Args:</dt><dd><p>battery_capacity (int, optional): La capacità massima della batteria. Default è 100.
+battery (int, optional): Il livello attuale della batteria. Default è 100.
+min_battery (int, optional): Il livello minimo di batteria richiesto. Default è 20.
+electric_constant (float, optional): La costante elettrica del veicolo. Default è 0.06.
+energy_recharged (list, optional): Una lista delle energie ricaricate. Default è una lista vuota.
+travel_time (int, optional): Il tempo di viaggio totale. Default è 0.</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="electric_vehicle.ElectricVehicle.adaptive_search">
 <span class="sig-name descname"><span class="pre">adaptive_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">goal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ambient_temperature</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#electric_vehicle.ElectricVehicle.adaptive_search" title="Link to this definition"></a></dt>
-<dd><p>Esegue una ricerca adattiva per trovare il percorso da un nodo di partenza a un nodo obiettivo.</p>
-<p>Questo metodo utilizza l’algoritmo A* per trovare il percorso, calcola l’energia consumata lungo il percorso e, se necessario, trova la stazione di ricarica più vicina e calcola l’energia necessaria per la ricarica.</p>
+<dd><p>Trova la stazione di ricarica più vicina che può essere raggiunta con l’energia rimanente nella batteria.</p>
+<p>Questo metodo esamina tutte le stazioni di ricarica nel grafo e restituisce il nodo della stazione di ricarica più vicina che può essere raggiunta con l’energia rimanente nella batteria. Se non esiste una stazione di ricarica raggiungibile, il metodo solleva un’eccezione.</p>
+<p>Il metodo modifica l’attributo <cite>self.energy_recharged</cite> per riflettere l’energia ricaricata alla stazione di ricarica.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>graph (Graph): Il grafo su cui eseguire la ricerca.
+<dt>Args:</dt><dd><p>graph (Graph): Il grafo che rappresenta il percorso. Deve contenere informazioni sulle stazioni di ricarica.
 start (int): Il nodo di partenza.
-goal (int): Il nodo obiettivo.
-ambient_temperature (float): La temperatura ambiente.</p>
+goal (int): Il nodo di arrivo.
+solution (list): Il percorso attuale. Ogni elemento è una coppia di nodi.
+ambient_temperature (float): La temperatura ambiente in gradi Celsius.</p>
 </dd>
-<dt>Returns:</dt><dd><p>list: Il percorso dal nodo di partenza al nodo obiettivo.</p>
+<dt>Returns:</dt><dd><p>int: Il nodo della stazione di ricarica più vicina che può essere raggiunta con l’energia rimanente.</p>
 </dd>
-<dt>Raises:</dt><dd><p>Exception: Se non è possibile trovare un percorso completo o una stazione di ricarica.</p>
+<dt>Raises:</dt><dd><p>Exception: Se non esiste una stazione di ricarica raggiungibile con l’energia rimanente.</p>
+</dd>
+<dt>Side Effects:</dt><dd><p>Modifica <cite>self.energy_recharged</cite> per riflettere l’energia ricaricata alla stazione di ricarica.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -121,11 +124,11 @@ ambient_temperature (float): La temperatura ambiente.</p>
 <span class="sig-name descname"><span class="pre">calculate_energy_consumed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ambient_temperature</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#electric_vehicle.ElectricVehicle.calculate_energy_consumed" title="Link to this definition"></a></dt>
 <dd><p>Calcola l’energia consumata in kWh e il tempo complessivo per un dato percorso.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>solution (list): Il percorso da calcolare.
+<dt>Args:</dt><dd><p>solution (list): Il percorso da calcolare. Ogni elemento è una coppia di nodi.
 graph (Graph): Il grafo che rappresenta il percorso.
 ambient_temperature (float): La temperatura ambiente.</p>
 </dd>
-<dt>Returns:</dt><dd><p>tuple: L’energia consumata e il tempo impiegato.</p>
+<dt>Returns:</dt><dd><p>tuple: L’energia consumata (float) e il tempo impiegato (int).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -133,15 +136,16 @@ ambient_temperature (float): La temperatura ambiente.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="electric_vehicle.ElectricVehicle.calculate_recharge_needed">
 <span class="sig-name descname"><span class="pre">calculate_recharge_needed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charging_station_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">goal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ambient_temperature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_consumed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#electric_vehicle.ElectricVehicle.calculate_recharge_needed" title="Link to this definition"></a></dt>
-<dd><p>Calcola il livello di ricarica necessario in modo intelligente.</p>
+<dd><p>Calcola l’energia necessaria per ricaricare il veicolo elettrico in modo da raggiungere l’obiettivo dal punto di ricarica.</p>
+<p>Questo metodo considera la distanza tra la stazione di ricarica e l’obiettivo, la temperatura ambiente e l’energia già consumata.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>charging_station_start (int): Il nodo di partenza della stazione di ricarica.
 goal (int): Il nodo di arrivo.
 graph (Graph): Il grafo che rappresenta il percorso.
 ambient_temperature (float): La temperatura ambiente.
-energy_consumed (float, optional): L’energia consumata. Default a 0.</p>
+energy_consumed (float, optional): L’energia già consumata. Default a 0.</p>
 </dd>
-<dt>Returns:</dt><dd><p>float: L’energia necessaria per la ricarica.</p>
+<dt>Returns:</dt><dd><p>float: L’energia necessaria per la ricarica, considerando un margine di sicurezza del 20%.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -149,7 +153,8 @@ energy_consumed (float, optional): L’energia consumata. Default a 0.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="electric_vehicle.ElectricVehicle.nearest_charging_station">
 <span class="sig-name descname"><span class="pre">nearest_charging_station</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">goal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ambient_temperature</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#electric_vehicle.ElectricVehicle.nearest_charging_station" title="Link to this definition"></a></dt>
-<dd><p>Trova la stazione di ricarica più vicina in base all’autonomia.</p>
+<dd><p>Trova la stazione di ricarica più vicina che può essere raggiunta con l’energia rimanente nella batteria.</p>
+<p>Questo metodo considera tutte le stazioni di ricarica nel grafo e restituisce quella più vicina che può essere raggiunta con l’energia rimanente.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>graph (Graph): Il grafo che rappresenta il percorso.
 start (int): Il nodo di partenza.
@@ -157,7 +162,7 @@ goal (int): Il nodo di arrivo.
 solution (list): Il percorso attuale.
 ambient_temperature (float): La temperatura ambiente.</p>
 </dd>
-<dt>Returns:</dt><dd><p>int: Il nodo della stazione di ricarica più vicina.</p>
+<dt>Returns:</dt><dd><p>int: Il nodo della stazione di ricarica più vicina che può essere raggiunta con l’energia rimanente.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -167,7 +172,7 @@ ambient_temperature (float): La temperatura ambiente.</p>
 <span class="sig-name descname"><span class="pre">update_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_consumed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#electric_vehicle.ElectricVehicle.update_path" title="Link to this definition"></a></dt>
 <dd><p>Aggiorna il percorso, il tempo di viaggio e il livello della batteria del veicolo.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>solution (list): Il percorso da aggiornare.
+<dt>Args:</dt><dd><p>solution (list): Il nuovo percorso. Ogni elemento è una coppia di nodi.
 energy_consumed (float): L’energia consumata durante il percorso.
 time (int): Il tempo impiegato per il percorso.</p>
 </dd>

@@ -96,13 +96,13 @@ goal (int): Il nodo di arrivo.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="heuristics.euclidean_distance">
 <span class="sig-prename descclassname"><span class="pre">heuristics.</span></span><span class="sig-name descname"><span class="pre">euclidean_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#heuristics.euclidean_distance" title="Link to this definition"></a></dt>
-<dd><p>Calcola la distanza euclidea tra due nodi.</p>
+<dd><p>Calcola la distanza euclidea tra due nodi in un grafo.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>node_a (int): Il primo nodo.
-node_b (int): Il secondo nodo.
-graph (Graph): Il grafo che contiene i nodi.</p>
+<dt>Args:</dt><dd><p>node_a (int): L’ID del primo nodo.
+node_b (int): L’ID del secondo nodo.
+graph (networkx.Graph): Il grafo che contiene i nodi.</p>
 </dd>
-<dt>Returns:</dt><dd><p>float: La distanza euclidea tra i due nodi.</p>
+<dt>Returns:</dt><dd><p>float: La distanza euclidea tra i due nodi in chilometri.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -117,7 +117,7 @@ lon1 (float): La longitudine del primo punto.
 lat2 (float): La latitudine del secondo punto.
 lon2 (float): La longitudine del secondo punto.</p>
 </dd>
-<dt>Returns:</dt><dd><p>float: La distanza haversine in km tra i due punti.</p>
+<dt>Returns:</dt><dd><p>float: La distanza haversine tra i due punti in chilometri.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -125,11 +125,11 @@ lon2 (float): La longitudine del secondo punto.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="heuristics.shortest_destination">
 <span class="sig-prename descclassname"><span class="pre">heuristics.</span></span><span class="sig-name descname"><span class="pre">shortest_destination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#heuristics.shortest_destination" title="Link to this definition"></a></dt>
-<dd><p>Trova il percorso più breve tra due nodi utilizzando l’algoritmo di Dijkstra.</p>
+<dd><p>Trova il percorso più breve in termini di tempo tra due nodi utilizzando l’algoritmo di Dijkstra.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>node_a (int): Il nodo di partenza.
-node_b (int): Il nodo di arrivo.
-graph (Graph): Il grafo che contiene i nodi.</p>
+<dt>Args:</dt><dd><p>node_a (int): L’ID del nodo di partenza.
+node_b (int): L’ID del nodo di arrivo.
+graph (networkx.Graph): Il grafo che contiene i nodi.</p>
 </dd>
 <dt>Returns:</dt><dd><p>float: Il costo del percorso più breve tra i due nodi in ore.</p>
 </dd>
@@ -139,11 +139,11 @@ graph (Graph): Il grafo che contiene i nodi.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="heuristics.time_based_heuristic">
 <span class="sig-prename descclassname"><span class="pre">heuristics.</span></span><span class="sig-name descname"><span class="pre">time_based_heuristic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#heuristics.time_based_heuristic" title="Link to this definition"></a></dt>
-<dd><p>Calcola un’euristica basata sul tempo tra due nodi.</p>
+<dd><p>Calcola un’euristica basata sul tempo tra due nodi in un grafo.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>node_a (int): Il primo nodo.
-node_b (int): Il secondo nodo.
-graph (Graph): Il grafo che contiene i nodi.</p>
+<dt>Args:</dt><dd><p>node_a (int): L’ID del primo nodo.
+node_b (int): L’ID del secondo nodo.
+graph (networkx.Graph): Il grafo che contiene i nodi.</p>
 </dd>
 <dt>Returns:</dt><dd><p>float: L’euristica basata sul tempo tra i due nodi in ore.</p>
 </dd>

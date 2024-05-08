@@ -80,12 +80,12 @@
 <dt class="sig sig-object py" id="path_finding.PathFinding">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">path_finding.</span></span><span class="sig-name descname"><span class="pre">PathFinding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">goal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#path_finding.PathFinding" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="search_problem.html#search_problem.SearchProblem" title="search_problem.SearchProblem"><code class="xref py py-class docutils literal notranslate"><span class="pre">SearchProblem</span></code></a></p>
-<p>Classe per risolvere un problema di ricerca del percorso.</p>
-<p>Questa classe eredita da SearchProblem e aggiunge la logica specifica per la ricerca del percorso.</p>
+<p>Classe per risolvere un problema di ricerca del percorso su un grafo.</p>
+<p>Questa classe estende la classe SearchProblem e aggiunge la logica specifica per la ricerca del percorso su un grafo. Il grafo, il nodo iniziale e il nodo obiettivo sono specificati al momento della creazione dell’istanza della classe.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>graph (Graph): Il grafo su cui eseguire la ricerca.
-init (int): Il nodo iniziale.
-goal (int): Il nodo obiettivo.</p>
+<dt>Args:</dt><dd><p>graph (Graph): Il grafo su cui eseguire la ricerca del percorso.
+init (int): L’ID del nodo iniziale del percorso.
+goal (int): L’ID del nodo obiettivo del percorso.</p>
 </dd>
 </dl>
 </dd></dl>

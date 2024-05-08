@@ -83,19 +83,20 @@
 <p>EVOPT Maps is a project developed as a university assignment for the “Intelligent Systems” course. The project leverages the osmnx library to implement real-world streets and simulate the journey of an electric vehicle.</p>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
-<p>EVOPT Maps aims to develop a system for electric vehicle charging. It provides a user-friendly interface for users to automatically locate and reserve charging stations.</p>
+<p>EVOPT Maps aims to develop a system for electric vehicle charging. It provides a user-friendly interface for users to automatically locate and reserve charging stations. The project uses a search algorithm to find the most efficient route for the electric vehicle, considering factors such as distance, time, speed, and availability of charging stations.</p>
+<p>The search algorithm was chosen for several reasons. Firstly, it allows for the consideration of multiple factors in route selection, providing a more comprehensive solution than simple distance-based algorithms. Secondly, it is highly adaptable and can be easily adjusted to account for changes in road conditions or vehicle parameters.</p>
 </section>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Download real-world map with real information</p></li>
-<li><p>Automate searching and locating charging stations</p></li>
-<li><p>Choose the battery percentage to have at the end of the journey</p></li>
+<li><p>Downloads real-world maps with accurate information.</p></li>
+<li><p>Automates the process of searching and locating charging stations.</p></li>
+<li><p>Allows users to specify the desired battery percentage at the end of the journey.</p></li>
 </ul>
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
-<p>To install and run the EVOPT-Maps project, follow these steps:</p>
+<p>Follow these steps to install and run the EVOPT-Maps project:</p>
 <ol class="arabic simple">
 <li><p>Clone the repository:</p></li>
 </ol>
@@ -105,12 +106,7 @@
 <ol class="arabic simple" start="2">
 <li><p>Install the required dependencies:</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>folium
-pip<span class="w"> </span>install<span class="w"> </span>osmnx
-pip<span class="w"> </span>install<span class="w"> </span>numpy
-pip<span class="w"> </span>install<span class="w"> </span>geopy
-pip<span class="w"> </span>install<span class="w"> </span>scikit-learn
-pip<span class="w"> </span>install<span class="w"> </span>customtkinter
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3<span class="w"> </span>install<span class="w"> </span>folium<span class="w"> </span>osmnx<span class="w"> </span>numpy<span class="w"> </span>geopy<span class="w"> </span>scikit-learn<span class="w"> </span>customtkinter
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -125,14 +121,14 @@ pip<span class="w"> </span>install<span class="w"> </span>customtkinter
 <ol class="arabic simple">
 <li><p>Clone the repository to your local machine.</p></li>
 <li><p>Install the necessary dependencies.</p></li>
-<li><p>Run the program and specify the parameters for vehicle and location.</p></li>
+<li><p>Run the program and specify the parameters for the vehicle and location.</p></li>
 <li><p>The program will then download the map and find the best route for your vehicle.</p></li>
 <li><p>Open path.html to view the map with the optimal route.</p></li>
 </ol>
 </section>
 <section id="license">
 <h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
-<p>Everything used inside the project is free license!</p>
+<p>All resources used within the project are free license!</p>
 </section>
 </section>
 

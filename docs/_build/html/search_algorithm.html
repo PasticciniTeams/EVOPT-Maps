@@ -88,6 +88,7 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">search_algorithm.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#search_algorithm.Node" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Rappresenta un nodo in un algoritmo di ricerca.</p>
+<p>Ogni nodo ha uno stato, un nodo genitore, un’azione che ha portato a questo stato e un costo del percorso per arrivare a questo nodo.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>state (any): Lo stato corrente del nodo.
 parent (Node, optional): Il nodo genitore. Default a None.
@@ -102,6 +103,7 @@ g (int or float, optional): Il costo del percorso per arrivare a questo nodo. De
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">search_algorithm.</span></span><span class="sig-name descname"><span class="pre">SearchAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">view</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#search_algorithm.SearchAlgorithm" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Classe base per un algoritmo di ricerca.</p>
+<p>Questa classe definisce l’interfaccia comune per tutti gli algoritmi di ricerca. Gli algoritmi specifici dovrebbero estendere questa classe e implementare il metodo <cite>solve</cite>.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>view (bool, optional): Se True, visualizza l’output dell’algoritmo. Default a False.</p>
 </dd>
@@ -110,10 +112,11 @@ g (int or float, optional): Il costo del percorso per arrivare a questo nodo. De
 <dt class="sig sig-object py" id="search_algorithm.SearchAlgorithm.extract_solution">
 <span class="sig-name descname"><span class="pre">extract_solution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#search_algorithm.SearchAlgorithm.extract_solution" title="Link to this definition"></a></dt>
 <dd><p>Estrae la soluzione a partire da un nodo.</p>
+<p>Questo metodo dovrebbe essere implementato dalle sottoclassi.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>node (Node): Il nodo da cui estrarre la soluzione.</p>
+<dt>Args:</dt><dd><p>node (Node): Il nodo finale da cui estrarre la soluzione.</p>
 </dd>
-<dt>Returns:</dt><dd><p>Una lista delle azioni che portano alla soluzione.</p>
+<dt>Raises:</dt><dd><p>NotImplementedError: Se il metodo non è stato implementato dalla sottoclasse.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -122,6 +125,7 @@ g (int or float, optional): Il costo del percorso per arrivare a questo nodo. De
 <dt class="sig sig-object py" id="search_algorithm.SearchAlgorithm.reset_expanded">
 <span class="sig-name descname"><span class="pre">reset_expanded</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#search_algorithm.SearchAlgorithm.reset_expanded" title="Link to this definition"></a></dt>
 <dd><p>Resetta il numero di nodi espansi.</p>
+<p>Svuota l’insieme degli stati espansi e azzera il conteggio dei nodi espansi.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -141,6 +145,7 @@ g (int or float, optional): Il costo del percorso per arrivare a questo nodo. De
 <dt class="sig sig-object py" id="search_algorithm.SearchAlgorithm.update_expanded">
 <span class="sig-name descname"><span class="pre">update_expanded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#search_algorithm.SearchAlgorithm.update_expanded" title="Link to this definition"></a></dt>
 <dd><p>Aggiorna il numero di nodi espansi.</p>
+<p>Aggiunge lo stato del nodo all’insieme degli stati espansi e incrementa il conteggio dei nodi espansi.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>state (any): Lo stato del nodo da aggiungere all’insieme degli stati espansi.</p>
 </dd>

@@ -85,11 +85,11 @@
 <dt class="sig sig-object py" id="search_problem.SearchProblem">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">search_problem.</span></span><span class="sig-name descname"><span class="pre">SearchProblem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">goal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#search_problem.SearchProblem" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Classe per risolvere un problema di ricerca.</p>
-<p>Questa classe definisce un problema di ricerca generico.</p>
+<p>Classe per definire e risolvere un problema di ricerca generico.</p>
+<p>Questa classe rappresenta un problema di ricerca, definito da un nodo iniziale, un nodo obiettivo e un grafo su cui eseguire la ricerca.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>init (int): Il nodo iniziale.
-goal (int): Il nodo obiettivo.
+<dt>Args:</dt><dd><p>init (int): L’ID del nodo iniziale.
+goal (int): L’ID del nodo obiettivo.
 graph (networkx.classes.multidigraph.MultiDiGraph): Il grafo su cui eseguire la ricerca.</p>
 </dd>
 </dl>
@@ -97,10 +97,11 @@ graph (networkx.classes.multidigraph.MultiDiGraph): Il grafo su cui eseguire la 
 <dt class="sig sig-object py" id="search_problem.SearchProblem.getSuccessors">
 <span class="sig-name descname"><span class="pre">getSuccessors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#search_problem.SearchProblem.getSuccessors" title="Link to this definition"></a></dt>
 <dd><p>Restituisce i successori di uno stato.</p>
+<p>Per ogni vicino dello stato, calcola l’azione, l’energia consumata e il tempo impiegato per raggiungere il vicino.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>state: Lo stato di cui ottenere i successori.</p>
+<dt>Args:</dt><dd><p>state (int): L’ID del nodo di cui ottenere i successori.</p>
 </dd>
-<dt>Returns:</dt><dd><p>Un insieme di tuple, ognuna delle quali contiene un’azione, un successore, l’energia consumata per raggiungere il successore e il tempo impiegato.</p>
+<dt>Returns:</dt><dd><p>set: Un insieme di tuple, ognuna delle quali contiene un’azione, un successore, l’energia consumata per raggiungere il successore e il tempo impiegato.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -108,11 +109,11 @@ graph (networkx.classes.multidigraph.MultiDiGraph): Il grafo su cui eseguire la 
 <dl class="py method">
 <dt class="sig sig-object py" id="search_problem.SearchProblem.isGoal">
 <span class="sig-name descname"><span class="pre">isGoal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#search_problem.SearchProblem.isGoal" title="Link to this definition"></a></dt>
-<dd><p>Verifica se uno stato è l’obiettivo, senza considerare il livello della batteria.</p>
+<dd><p>Verifica se uno stato è l’obiettivo.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>state: Lo stato da verificare.</p>
+<dt>Args:</dt><dd><p>state (int): L’ID del nodo da verificare.</p>
 </dd>
-<dt>Returns:</dt><dd><p>True se lo stato è l’obiettivo, altrimenti False.</p>
+<dt>Returns:</dt><dd><p>bool: True se lo stato è l’obiettivo, altrimenti False.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -122,7 +123,7 @@ graph (networkx.classes.multidigraph.MultiDiGraph): Il grafo su cui eseguire la 
 <span class="sig-name descname"><span class="pre">is_charging_station</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charging_stations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#search_problem.SearchProblem.is_charging_station" title="Link to this definition"></a></dt>
 <dd><p>Verifica se uno stato è una stazione di ricarica.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>state (int): Il nodo da verificare.
+<dt>Args:</dt><dd><p>state (int): L’ID del nodo da verificare.
 charging_stations (list): La lista delle stazioni di ricarica.</p>
 </dd>
 <dt>Returns:</dt><dd><p>bool: True se lo stato è una stazione di ricarica, altrimenti False.</p>

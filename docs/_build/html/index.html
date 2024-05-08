@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to Electric Recharge’s documentation! &mdash; EVOPT-Maps  documentation</title>
+  <title>Welcome to EVOPT Maps’s documentation! &mdash; EVOPT-Maps  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -20,7 +20,8 @@
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting Started" href="getting_started.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,22 +43,11 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Welcome to Electric Recharge’s documentation!</a><ul>
-<li><a class="reference internal" href="#evopt-maps">EVOPT-Maps</a><ul>
-<li><a class="reference internal" href="#introduction">Introduction</a></li>
-<li><a class="reference internal" href="#features">Features</a></li>
-<li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#usage">Usage</a></li>
-<li><a class="reference internal" href="#license">License</a></li>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-</ul>
-</div>
+
         </div>
       </div>
     </nav>
@@ -72,7 +62,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Welcome to Electric Recharge’s documentation!</li>
+      <li class="breadcrumb-item active">Welcome to EVOPT Maps’s documentation!</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -82,26 +72,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="welcome-to-electric-recharge-s-documentation">
-<h1>Welcome to Electric Recharge’s documentation!<a class="headerlink" href="#welcome-to-electric-recharge-s-documentation" title="Link to this heading"></a></h1>
+  <section id="welcome-to-evopt-maps-s-documentation">
+<h1>Welcome to EVOPT Maps’s documentation!<a class="headerlink" href="#welcome-to-evopt-maps-s-documentation" title="Link to this heading"></a></h1>
 <section id="evopt-maps">
 <h2>EVOPT-Maps<a class="headerlink" href="#evopt-maps" title="Link to this heading"></a></h2>
 <p>EVOPT Maps is a project developed as a university assignment for the “Intelligent Systems” course. The project leverages the osmnx library to implement real-world streets and simulate the journey of an electric vehicle.</p>
 <section id="introduction">
 <h3>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h3>
-<p>EVOPT Maps aims to develop a system for electric vehicle charging. It provides a user-friendly interface for users to automatically locate and reserve charging stations.</p>
+<p>EVOPT Maps aims to develop a system for electric vehicle charging. It provides a user-friendly interface for users to automatically locate and reserve charging stations. The project uses a search algorithm to find the most efficient route for the electric vehicle, considering factors such as distance, time, speed, and availability of charging stations.</p>
+<p>The search algorithm was chosen for several reasons. Firstly, it allows for the consideration of multiple factors in route selection, providing a more comprehensive solution than simple distance-based algorithms. Secondly, it is highly adaptable and can be easily adjusted to account for changes in road conditions or vehicle parameters.</p>
 </section>
 <section id="features">
 <h3>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>Download real-world map with real information</p></li>
-<li><p>Automate searching and locating charging stations</p></li>
-<li><p>Choose the battery percentage to have at the end of the journey</p></li>
+<li><p>Downloads real-world maps with accurate information.</p></li>
+<li><p>Automates the process of searching and locating charging stations.</p></li>
+<li><p>Allows users to specify the desired battery percentage at the end of the journey.</p></li>
 </ul>
 </section>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h3>
-<p>To install and run the EVOPT-Maps project, follow these steps:</p>
+<p>Follow these steps to install and run the EVOPT-Maps project:</p>
 <ol class="arabic simple">
 <li><p>Clone the repository:</p></li>
 </ol>
@@ -111,12 +102,7 @@
 <ol class="arabic simple" start="2">
 <li><p>Install the required dependencies:</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>folium
-pip<span class="w"> </span>install<span class="w"> </span>osmnx
-pip<span class="w"> </span>install<span class="w"> </span>numpy
-pip<span class="w"> </span>install<span class="w"> </span>geopy
-pip<span class="w"> </span>install<span class="w"> </span>scikit-learn
-pip<span class="w"> </span>install<span class="w"> </span>customtkinter
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3<span class="w"> </span>install<span class="w"> </span>folium<span class="w"> </span>osmnx<span class="w"> </span>numpy<span class="w"> </span>geopy<span class="w"> </span>scikit-learn<span class="w"> </span>customtkinter
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -131,14 +117,14 @@ pip<span class="w"> </span>install<span class="w"> </span>customtkinter
 <ol class="arabic simple">
 <li><p>Clone the repository to your local machine.</p></li>
 <li><p>Install the necessary dependencies.</p></li>
-<li><p>Run the program and specify the parameters for vehicle and location.</p></li>
+<li><p>Run the program and specify the parameters for the vehicle and location.</p></li>
 <li><p>The program will then download the map and find the best route for your vehicle.</p></li>
 <li><p>Open path.html to view the map with the optimal route.</p></li>
 </ol>
 </section>
 <section id="license">
 <h3>License<a class="headerlink" href="#license" title="Link to this heading"></a></h3>
-<p>Everything used inside the project is free license!</p>
+<p>All resources used within the project are free license!</p>
 </section>
 </section>
 <div class="toctree-wrapper compound">
@@ -155,7 +141,9 @@ pip<span class="w"> </span>install<span class="w"> </span>customtkinter
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
