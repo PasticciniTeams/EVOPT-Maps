@@ -103,7 +103,7 @@ charging_stations (list): Una lista degli indici delle stazioni di ricarica nel 
 <span class="sig-prename descclassname"><span class="pre">gui.</span></span><span class="sig-name descname"><span class="pre">generate_osm_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_charging_stations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gui.generate_osm_graph" title="Link to this definition"></a></dt>
 <dd><p>Genera un grafo stradale da OpenStreetMap.</p>
 <p>Questa funzione scarica i dati della rete stradale da OpenStreetMap e li converte in un grafo NetworkX. Aggiunge anche le velocità degli archi,
-i tempi di percorrenza e le lunghezze degli archi al grafo. Se non viene specificato un numero di stazioni di ricarica, il 30% dei nodi viene impostato come stazioni di ricarica.</p>
+i tempi di percorrenza e le lunghezze degli archi al grafo. Se non viene specificato un numero di stazioni di ricarica, il 10% dei nodi viene impostato come stazioni di ricarica.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>location (str): La località da cui scaricare i dati della rete stradale.
 num_charging_stations (int, optional): Il numero di stazioni di ricarica da aggiungere al grafo. Default a None.</p>
